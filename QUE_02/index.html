@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            position: relative;
+            width: 100%;
+            height: 99vh;
+            overflow-x: hidden;
+            overflow-y: hidden;
+        }
+
+        .outer-1 {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            margin: auto;
+            height: 200px;
+            display: flex;
+        }
+
+        .grid-1 {
+            display: flex;
+            width: 100%;
+            height: 100%;
+        }
+
+        .grid-1::after {
+            content: "";
+            width: 70vw;
+            height: 5px;
+            background-color: black;
+            position: relative;
+            top: 60px;
+            left: 120px;
+        }
+
+        .grid-1 > div {
+            width: 100px;
+            height: 50px;
+            border-radius: 15px;
+            border: 1px solid black;
+            position: absolute;
+            left: 10%;
+        }
+
+        .grid-2 {
+            display: flex;
+            width: 100%;
+            height: 100%;
+        }
+
+        .grid-2 > div {
+            width: 100px;
+            height: 50px;
+            border-radius: 15px;
+            border: 1px solid black;
+            position: absolute;
+            left: 10%;
+            top: 100px;
+        }
+    </style>
+</head>
+<body>
+<section class="outer-1">
+    <section class="grid-1">
+
+    </section>
+    <section class="grid-2">
+
+    </section>
+</section>
+
+<script>
+
+    var selectedColor = '';
+    var x = new Array();
+    x.push({
+        name: '',
+        color: 'red'
+    });
+    x.push({
+        name: '',
+        color: 'green'
+    });
+    x.push({
+        name: '',
+        color: 'blue'
+    });
+    x.push({
+        name: '',
+        color: 'yellow'
+    });
+
+    x.push({
+        name: '',
+        color: 'pink'
+    });
+
+    x.push({
+        name: '',
+        color: 'Fuchsia'
+    });
+
+    // =======================
+    var selectedColor2 = '';
+    var y = new Array();
+    y.push({
+        name: '',
+        color: 'red'
+    });
+    y.push({
+        name: '',
+        color: 'green'
+    });
+    y.push({
+        name: '',
+        color: 'blue'
+    });
+    y.push({
+        name: '',
+        color: 'yellow'
+    });
+
+    y.push({
+        name: '',
+        color: 'pink'
+    });
+
+    y.push({
+        name: '',
+        color: 'Fuchsia'
+    });
+
+    setDivs();
+    setDivsr();
+    setInterval(nextPerson2, 1000);
+    setInterval(nextPerson, 1000);
+
+
+    function setDivs() {
+        var grid1 = document.querySelector('.grid-1');
+        grid1.innerHTML = '';
+
+        for (var c = 0; c < x.length; c++) {
+            var div = document.createElement('div');
+            div.style.backgroundColor = x[c].color;
+            div.innerHTML = '<h1>' + x[c].name + '</h1>';
+            grid1.appendChild(div);
+        }
+
+        var gridLine2 = document.createElement('div');
+        gridLine2.className = 'grid-line-2';
+        grid1.appendChild(gridLine2);
+    }
+    function setDivsr() {
+        var grid2 = document.querySelector('.grid-2');
+        grid2.innerHTML = '';
+
+        for (var c = 0; c < y.length; c++) {
+            var div = document.createElement('div');
+            div.style.backgroundColor = y[c].color;
+            div.innerHTML = '<h1>' + y[c].name + '</h1>';
+            grid2.appendChild(div);
+        }
+
+        var gridLine2 = document.createElement('div');
+        gridLine2.className = 'grid-line-2';
+        grid2.appendChild(gridLine2);
+    }
+
+    function nextPerson() {
+        var last = x.pop();
+        x.unshift(last);
+
+        // Update colors for grid-1
+        for (var i = 0; i < x.length; i++) {
+            var colorIndex = i % y.length;
+            x[i].color = y[colorIndex].color;
+        }
+
+        setDivs();
+    }
+
+
+    function nextPerson2() {
+        var lasts = y.pop();
+        y.unshift(lasts);
+        setDivsr();
+    }
+
+</script>
+</body>
+</html>

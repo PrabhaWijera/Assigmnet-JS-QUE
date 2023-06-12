@@ -34,7 +34,7 @@ function setDivs() {
         if (x[c].color === 'Green') {
             $('.grid-1').append(`<div style="background-color: ${x[c].color}"><h1>${x[c].name}</h1></div>`);
         } else {
-            $('.grid-1').append(`<div style="background-image: url('assetts/4703093a70ba47001bf2c86319aae091.gif'); background-size: cover; background-repeat: no-repeat; background-size: 100% 100% ;"><h1>${x[c].name}</h1></div>`);
+            $('.grid-1').append(`<div style="background-image: url('../assetts/4703093a70ba47001bf2c86319aae091.gif'); background-size: cover; background-repeat: no-repeat; background-size: 100% 100% ;"><h1>${x[c].name}</h1></div>`);
         }
     }
 }
