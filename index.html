@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Assigmnet-JS-QUE</title>
+    <style>
+        .outer-1{
+            height: 200px;
+            width: 500px;
+
+        }
+
+        .grid-1{
+            display: flex;
+            width: 100%;
+            height: 100%;
+        }
+
+        .grid-1>div{
+            width: 200px;
+            height: 100%;
+
+        }
+
+        #homegif{
+            position: fixed;
+            width: 400px;
+            height: 200px;
+            right: 10px;
+            top: 30px;
+        }
+    </style>
+</head>
+<body>
+
+<form>
+    <input placeholder="Name" id="inp-name">
+
+    <select id="sel-colors">
+        <option>A</option>
+        <option>B</option>
+        <option>C</option>
+        <option>D</option>
+        <option>E</option>
+
+    </select>
+
+    <button type="button" id="add-btn">Add to que</button>
+
+</form>
+<section class="outer-1">
+    <div id ="homegifdiv">
+        <img src="assetts/789c3306e7c3813963ad3ca5c237b45a.gif" alt="" id="homegif">
+    </div>
+    <section class="grid-1">
+    </section>
+
+</section>
+<script src="jquery-3.6.0.min.js"></script>
+<script src="que.js"></script>
+</body>
+</html>
